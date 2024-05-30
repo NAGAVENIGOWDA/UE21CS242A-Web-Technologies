@@ -1,0 +1,35 @@
+<html>
+<head>
+<script>
+	function handler(event){
+		ev = event ;
+		event.target.style.color = "red"
+		console.log(event.target.innerText)
+	}
+	
+	function init(){
+		// event object property
+		list = document.querySelectorAll("li")
+		for(let i in list)
+		list[i].onclick = handler;
+		
+		// eventhandler method - addEventListener()
+		document.querySelector("p").addEventListener("click",function(event){
+		event.target.innerHTML = "These were sooper hit films of the year"})
+	}
+	
+</script>
+</head>
+<body onload ="init()">
+
+<!-- Inline event handler-->
+<p onclick = "handler(event)"> Popular films </p>
+
+<ul>
+<li> RRR </li>
+<li> KGF-2</li>
+<li> 777 Charlie </li>
+</ul>
+</body>
+
+</html>

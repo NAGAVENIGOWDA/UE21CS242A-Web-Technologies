@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="jquery-3.6.1.js"></script>
+</head>
+<body>
+<div class = "container">
+	<p id ="changehere"> This line will be changed to ...</p>
+	<button id ="btn"> click here</button>
+</div>
+
+<script>
+	$(document).ready(function(){
+		$("#btn").click(function(){
+			$.get("get.html",function(data,status){
+				$("#changehere").html(data);
+				alert(status);
+			});
+		})
+	
+	})
+	
+	</script>
+</body> 
+</html> 

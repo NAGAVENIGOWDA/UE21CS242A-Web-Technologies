@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="jquery-3.6.1.js"></script>
+
+<script>
+//:first,:first-child,:last,:last-child,:even,:odd
+
+$(document).ready(function(){
+	$("#btn1").click(function(){
+		$("p:even").css("background-color","aqua")
+	});
+	$("#btn2").click(function(){
+		$("p:odd").css("background-color","red")
+	});
+});
+  
+
+</script>
+</head>
+<body>
+
+<button id="btn1">:first</button>
+<button id="btn2">:first-child</button><br><br>
+
+<div style="border:1px solid">
+  <p id = "para1">The first paragraph in div.</p>
+  <p>The last paragraph in the div.</p>
+  
+</div><br>
+
+<div style="border:1px solid">
+  <p class ="para2">The first paragraph in another div.</p>
+  <p>The last paragraph in another div.</p>
+  
+</div>
+
+</body>
+</html>

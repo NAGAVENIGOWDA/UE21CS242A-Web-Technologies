@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>React</title>
+		<script crossdomain src="https://unpkg.com/react@16/umd/react.development.js"> </script> 
+		<script crossdomain src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"> </script> 
+		<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"> </script>
+	</head>
+	<body>
+		<div id="container"></div>
+		<script type="text/babel">
+		
+	class Reservation extends React.Component {
+	constructor(){
+	super();
+	this.state={ guests:2,
+				 isgoing:true}
+				this.handleChange = this.handleChange.bind(this) 
+	
+	
+	}
+	
+	handleChange(event){
+		const target = event.target
+		const value = target.type==='checkbox'?target.checked:target.value
+		const name = target.name
+		console.log(event.target.name)
+		
+		this.setState({[name]:value});
+	
+	}
+	
+			render() {
+				return ( <form>
+					<label >
+						No of guests:
+						<input type = "number" name = "guests" value = {this.state.guests}
+						onChange = {this.handleChange}/>
+					</label>
+					<br/><br/>
+					
+					<label >
+						Is going:
+						<input type = "checkbox" name = "isgoing" checked = {this.state.isgoing}
+						onChange = {this.handleChange}/>
+					</label>
+				</form> );
+	}
+  
+	} 
+  ReactDOM.render(
+  <Reservation/>, document.querySelector("#container"));
+		
+		</script>
+	</body>
+</html>

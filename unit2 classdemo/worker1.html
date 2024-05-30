@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body>
+
+<p>Count numbers: <output id="result"> </output></p>
+<button onclick="startWorker()">Start Worker</button> 
+<button onclick="stopWorker()">Stop Worker</button>
+<button onclick="hello()">hello</button>
+
+<script>
+
+function startWorker(){
+	//create a web worker object
+	 worker = new Worker("workerjob.js")
+	 worker.onmessage = function(event){
+	 document.getElementById("result").innerHTML = event.data;
+	 }
+}
+
+function stopWorker(){
+	worker.terminate();
+	worker = undefined 
+}
+
+function hello(){
+alert("This says hi to all ")}
+</script>
+
+</body>
+</html>
+
+

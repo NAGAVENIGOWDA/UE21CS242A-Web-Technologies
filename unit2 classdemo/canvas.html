@@ -1,0 +1,40 @@
+<html>
+<body>
+
+<h1>The canvas element</h1>
+
+<canvas id="myCanvas" width="200" height="100" style = "border:solid"> canvas tag demo .</canvas>
+
+
+<script>
+	var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+//ctx.fillStyle="blue";
+//ctx.fillRect(50,50,150,75);
+// draw a line
+
+/*ctx.moveTo(0,0)
+ctx.lineTo(200,100);
+ctx.stroke();*/
+
+/* draw a arc
+ctx.beginPath();
+ctx.arc(95,50,40,0,2*Math.PI);
+ctx.fillStyle = "red";
+ctx.stroke();
+ctx.fill();*/
+
+// draw a text- font,fillText(),strokeText()
+
+ctx.font = "20px Arial"
+//ctx.fillText("hello canvas text",10,50);
+ctx.strokeText("hello canvas text",10,50);
+
+
+
+
+
+</script>
+</body>
+</html>
+

@@ -1,0 +1,28 @@
+<html>
+<body>
+
+<ul id = "mylist">
+<li>item1</li>
+<li>item1</li>
+<li>item1</li></ul>
+
+<p id = "demo"></p>
+<script>
+/*
+var text = "<studentdetails><student>"+"<name>John</name>"+"<subject>Web</subject>"+"</studentdetails></student>";
+
+var parser = new DOMParser();
+var xmldoc = parser.parseFromString(text,"text/xml");
+document.getElementById("demo").innerHTML = 
+xmldoc.getElementsByTagName("name")[0].childNodes[0].nodeValue;
+*/
+
+var a = document.getElementById("mylist")
+var mydoc = new XMLSerializer();
+var serializer = mydoc.serializeToString(a);
+console.log(serializer);
+
+
+</script>
+</body>
+</html>

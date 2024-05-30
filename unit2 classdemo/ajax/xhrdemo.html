@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<body>
+<h2>XHR sample </h2>
+<script>
+ // create a xhr object 
+  var xhr = new XMLHttpRequest();
+ //console.log(xhr.readyState)
+ 
+ xhr.onreadystatechange = function(){
+	if(xhr.readyState==4){
+		if(xhr.status == 200){
+		console.log(xhr.responseText);
+		}
+		if(xhr.status==404){
+		console.log("File not found")
+		}
+	}
+ }
+ xhr.open("get","dom1.txt",true);//asyn
+ xhr.send();
+ //console.log(xhr.readyState)
+  
+</script>
+</body>
+</html>

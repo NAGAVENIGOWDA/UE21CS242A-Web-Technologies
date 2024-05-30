@@ -1,0 +1,37 @@
+<html>
+<head>
+<script src="jquery-3.6.1.js"></script>
+<script>
+$(document).ready( function (){
+	$("#btn1").click(function(){
+		var x = $("#test1").text("Modified text");
+		//console.log(x);
+	})
+	$("#btn2").click(function(){
+		$("#test2").html("<b>HTML content</b>")
+	})
+	$("#btn3").click(function(){
+		$("#test3").val("Automata")
+	})
+	$("#btn4").click(function(){
+		$("h1").add("#test1").css("background-color","red")
+	})
+});
+
+</script>
+</head>
+<body>
+<h1> Setting content examples </h1>
+<p id = "demo" > </p>
+<p id="test1">This is first content</p>
+<p id="test2">This is second content</p><br>
+<span>This is third element</span>
+Input field:<input type="text" id="test3" value="Web Technology"></p>
+
+<button id="btn1">Set Text</button>
+<button id="btn2">Set HTML</button>
+<button id="btn3">Set Value</button>
+<button id="btn4">AddElement </button>
+
+</body>
+</html>

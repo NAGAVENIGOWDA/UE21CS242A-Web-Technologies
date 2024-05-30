@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<title> XHR</title>
+		<script>
+		function loaddata(){
+		 let xhr= new XMLHttpRequest();
+		 xhr.open("get", "sample.txt", true);  
+		 xhr.onreadystatechange=showdata;
+		 //xhr.responseType="text";
+		 xhr.responseType="document";
+		 xhr.send();
+		}
+		function showdata(){
+			console.log("In showdata");
+			if(this.readyState==4 && this.status == 200){
+				console.log("inside if")
+				document.querySelector("#container").innerHTML=
+					this.responseText;
+			}		
+		}
+		
+	   </script>
+		
+	</head>
+	<body >
+	<button onclick="loaddata()">Load Data</button>
+	<div id="container"></div>
+		
+    </body>
+</html>

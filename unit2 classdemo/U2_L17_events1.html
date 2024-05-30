@@ -1,0 +1,85 @@
+<html>
+<body >
+<button id = "bt1">Click here!!</button>
+<p id = "demo"></p>
+<p>Something appears here on a doubleclick</p>
+<p id = "demo1">Click me</p><br>
+
+Field1:<input type = "text" id = "f1" value= "Hello world!!"><br>
+Field2:<input type = "text" id = "f2"><br><br>
+
+<button id = "bt2">Copy text</button><br>
+
+<img id = "img1" src = "smiley.jpg">
+
+<form name = "general">
+
+Keyboard: <input type = "text" id = "ky1"><br><br>
+Enter ur name : <input type = "text" id = "fname"><br><br>
+</form>
+
+<script>
+	 //doubleclick
+		var button = document.querySelector("#bt1");
+		button.addEventListener("dblclick",dosomething);
+		function dosomething(e){
+		document.getElementById("demo").innerHTML = "This is a doublick event fired"
+		}
+			 
+	//on doublclick copytext button the field1 value is copied to field 2
+	  var button = document.querySelector("#bt2");
+		button.addEventListener("dblclick",myfunc);
+	  function myfunc(){
+		document.getElementById("f2").value = document.getElementById("f1").value
+		}
+	  		
+	// mouse events- mouseout,mouseover,mouseup,mousedown	
+		var img = document.getElementById("img1")	
+		/*	img.addEventListener("mouseover",mOver)
+			img.addEventListener("mouseout",mOut)
+			function mOver(){
+				alert("This is mouseover event")
+		}
+			function mOut(){
+				alert("This is mouseout event")
+		}*/
+		
+		var p = document.getElementById("demo1")
+		p.addEventListener("mousedown",mDown)
+		p.addEventListener("mouseup",mUp)
+		function mDown(){
+				document.getElementById("demo1").innerHTML = "Mouse down event fired"
+		}
+			function mUp(){
+				document.getElementById("demo1").innerHTML = "Mouse up event fired"
+		}
+		
+	// context menu
+			document.addEventListener("contextmenu",hidemenu);
+			function hidemenu(e){
+				e.preventDefault();// stops the default behaviour of browser 
+			}
+						
+						
+	// key events - keydown ,keyup, keypress
+			
+		var kd = document.querySelector("#ky1")	
+		kd.addEventListener("keydown",kdown)
+		
+		function kdown(){
+		alert("Key is pressed")}
+		
+		document.getElementById("fname").addEventListener("keyup",kup)
+		function kup(){
+		document.getElementById("fname").value = document.getElementById("fname").value.toUpperCase()
+		}
+		
+		window.addEventListener("keypress",kypress);
+		function kypress(e){
+			if(e.charCode===97){
+			alert("Key a is pressed")}
+		}
+			
+</script>
+</body>
+</html>

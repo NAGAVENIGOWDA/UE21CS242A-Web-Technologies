@@ -1,0 +1,96 @@
+//client.js
+
+var fetch=require('node-fetch')
+
+fetch('http://localhost:3000/student',{
+    method:'POST',
+    headers:{'content-type':'application/json'},
+    body:JSON.stringify({"name":"Shaun","srn":"40","dept":"cse"})
+})
+.then((res)=>res.text())
+.then((res)=>console.log(res))
+
+
+/* fetch('http://localhost:3000/student/?dept=cse',{
+    method:'GET',
+    headers:{'Accept':'application/json'},
+   // body:JSON.stringify({"name":"Rohit","srn":"24"})
+})
+.then((res)=>res.json())
+.then((res)=>console.log(res))
+ */
+ ---------------------------------------------------------------------
+ //server.js
+ var express=require("express");
+var app= express();
+var MongoClient=require('mongodb').MongoClient;
+var bodyParser=require('body-parser');
+app.use(bodyParser.json());
+app.get("/", function(req,res){
+    res.send("Welcome to my Page");
+})
+
+var studentrouter=require("./student.js"); //http://localhost:3000/student
+app.use("/student", studentrouter);
+app.listen(3000,function(){
+    console.log("Server Listening on 3000")
+})
+
+ ----------------------------------------------------------------------
+ //student.js
+ var express=require("express");
+const  MongoClient  = require("mongodb").MongoClient;
+var router=express.Router();
+
+router.get("/",function(req,res){
+    MongoClient.connect('mongodb://localhost:27017', function(err,client){
+        if(err) throw err;
+        const db=client.db('newdb');
+        db.collection('student').find(req.query).toArray(function(err,objs){
+            res.send(objs);
+        })
+    });
+})
+router.get("/:sid", function(req,res){
+    MongoClient.connect('mongodb://localhost:27017', function(err,client){
+        if(err) throw err;
+        const db=client.db('newdb');
+        db.collection('student').findOne({srn:req.params.sid}, function(err,obj){
+            res.send(obj);
+        })
+    });
+}) 
+router.post("/", function(req,res){
+    MongoClient.connect('mongodb://localhost:27017', function(err,client){
+        if(err) throw err;
+        const db=client.db('newdb');
+        db.collection('student').insertOne(req.body, function(err,objs){
+            if (err) res.send("save failed")
+            else
+            res.send("save sucessful");
+        })
+    });
+}) 
+router.put("/:sid", function(req,res){
+    MongoClient.connect('mongodb://localhost:27017', function(err,client){
+        if(err) throw err;
+        const db=client.db('newdb');
+        db.collection('student').update({srn:req.params.id}, req.body, function(err,objs){
+            if (err) res.send("Upadte failed")
+            else
+            res.send("Update sucessful");
+        })
+    });
+}) 
+router.delete("/:sid", function(req,res){
+    MongoClient.connect('mongodb://localhost:27017', function(err,client){
+        if(err) throw err;
+        const db=client.db('newdb');
+        db.collection('student').delete({srn:req.params.id},  function(err,objs){
+            if (err) res.send("Delete failed")
+            else
+            res.send("Delete sucessful");
+        })
+    });
+}) 
+module.exports=router;

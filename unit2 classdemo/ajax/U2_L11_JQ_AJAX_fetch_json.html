@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title> Fetch</title>
+		<script src="//pesuonline.sharepoint.com///cdn.jsdelivr.net/bluebird/3.5.0/bluebird.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.js"></script>
+		</script>
+		<script>
+			function fetchdata(){
+				mydiv=document.querySelector("#container");
+				fetch('sample.json')
+				.then(function(response){
+					return response.json();
+				})
+				.then(function(obj){
+					mydiv.innerHTML=JSON.stringify(obj);
+				})
+				.catch(function(error){
+					console.log(error.message);
+				})
+			}
+				
+		
+	   </script>
+		
+	</head>
+	<body >
+	<button onclick="fetchdata()">Fetch Data</button>
+	<div id="container"></div>
+		
+    </body>
+</html>

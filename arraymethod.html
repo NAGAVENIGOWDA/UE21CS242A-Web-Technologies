@@ -1,0 +1,61 @@
+<html>
+<head>
+<script type="text/javascript">
+var a=new Array();
+a[0]="abc";
+a[1]="xyz";
+a[2]="jkl";
+
+var b = a[0].concat(a[2]);
+document.write("<br/>concatenated string is :"+b);
+
+
+var c=a.pop();
+document.write("<br/>deleted ele is :"+c);
+
+a.push("hhh","jjj");
+document.write("<br/><br/>array elements are:"+a);
+
+
+var c=a.shift();
+document.write("<br/><br/>shifted array elements are:"+a);
+	
+a.unshift("abc");
+document.write("<br/><br/>unshifted array elements are:"+a);
+//document.write("<br>" +a.toString());
+
+ var ar=new Array();
+ar[0]="aaa";
+ar[1]="bbb";
+ar[2]="ooo";
+ar[3]="ttt";
+ar[4]="uuu";
+ar[5]="ddd";
+ar[6]="mmm";
+
+var d=ar.slice(1,4); // will slice from starting position and end, but does not include, the given end argument.
+document.write("<br/><br/>array elements are:"+d);
+
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.splice(2,2);
+document.write("<br>" +fruits);
+
+
+//  join method.....
+var s=ar.join("*");
+document.write("<br/><br/>array elements are:"+s);
+
+ar.reverse();
+document.write("<br/><br/>array elements are:"+ar);
+
+ar.sort();
+document.write("<br/><br/>array elements are:"+ar);
+
+
+
+
+
+</script>
+</head>
+</html>

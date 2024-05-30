@@ -1,0 +1,22 @@
+<html>
+<head>
+<script src=" jquery-3.6.1.js "></script>
+<script>
+$(document).ready(function(){
+	$("button").click(function(){
+		//alert("Width of the image :"+$("img").attr("width"));
+		//$("img").attr("height",function(n,v){return v-50;})
+		//$("img").attr("height","200")
+		$("img").attr({width:"150",height:"150"})
+	});
+});
+
+
+</script>
+</head>
+<body>
+<img src="smiley.jpg" width="300" height="500"></img>
+<br> <br>
+<button> Return the width of the image </button>
+</body>
+</html>

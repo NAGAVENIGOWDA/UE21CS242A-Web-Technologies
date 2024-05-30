@@ -1,0 +1,43 @@
+<html>
+<head>
+<style>
+	div,ul,li{
+		border:1px solid black;
+		padding : 10px;
+		margin :10px;
+	}
+</style>
+<script>
+	 function init(){
+	 
+	// capturing phase 
+		/*document.querySelector("#div").addEventListener("click",handler,true)
+		document.querySelector("#ul").addEventListener("click",handler,true)
+		document.querySelector("#li").addEventListener("click",handler,true)
+		*/
+	// bubbling phase(default phase )	
+		document.querySelector("#li").addEventListener("click",handler,false)
+		document.querySelector("#ul").addEventListener("click",handler,false)
+		document.querySelector("#div").addEventListener("click",handler,false)
+			
+	 }
+	 
+	 function handler(event){
+		console.log(event.eventPhase+" "+event.target.id+" "+event.currentTarget.id);
+		event.target.style.color = "red";
+	 }
+
+</script>
+</head>
+
+<body onload = "init()">
+<div id = "div">
+<p > Popular films </p>
+<ul id = "ul">
+	<li> RRR </li>
+	<li> KGF-2</li>
+	<li id = "li"> 777 Charlie </li>
+</ul>
+</div>
+</body>
+</html>

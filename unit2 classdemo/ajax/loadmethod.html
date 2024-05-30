@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="jquery-3.6.1.js"></script>
+
+ <script>
+         $(document).ready(function() {
+            $("#driver").click(function(event){
+               $('#stage').load('result.html');
+            });
+         });
+      </script>
+</head>
+<body>
+      <p>Click on the button to load result.html file:</p>
+		
+      <div id = "stage">
+         STAGE
+      </div>
+		<br>
+      <input type = "button" id = "driver" value = "Load Data" />
+   </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>React! React! React!</title>
+  
+<script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+<!--<style>
+    .letterstyle{
+  padding: 10px;
+  margin: 10px;
+  background-color: #ffde00;
+  color: #333;
+  display: inline-block;
+  font-family: monospace;
+  font-size: 32px;
+  text-align: center;
+}-->
+
+ </style>
+
+</head>
+
+<body>
+	<div id = "myid"></div>
+	
+  <script type ="text/babel" >
+   var dest = document.querySelector("#myid");
+   
+  class Letter extends React.Component{
+			render(){
+					var letterstyle = {padding: 10,
+								  margin: 10,
+								  backgroundColor: this.props.bgcolor,
+								  color: "#333",
+								  display: "inline-block",
+								  fontFamily: "monospace",
+								  fontSize: 32,
+								  textAlign: "center"}		
+					
+				return (
+					<div style = {letterstyle}> 
+							{this.props.children}
+					</div>
+				);
+			
+			}
+  
+  }
+		ReactDOM.render(
+				<div>
+					<Letter bgcolor="#58B3FF">A</Letter>
+					<Letter bgcolor="#FF605F">E</Letter>
+					<Letter bgcolor="#FFD52E">I</Letter>
+					<Letter bgcolor="#49DD8E">O</Letter>
+					<Letter bgcolor="#AE99FF">U</Letter>
+			
+				</div>,dest);
+  
+	
+    </script>
+</body>
+
+</html>

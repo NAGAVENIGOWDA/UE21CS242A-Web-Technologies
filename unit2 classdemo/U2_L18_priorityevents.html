@@ -1,0 +1,26 @@
+<html>
+<head>
+<!--priority of the event handlers in a single page-->
+<script>
+	function clicker(){
+		console.log(event.target.id+"handled 1");
+	}
+	function clicker1(){
+		console.log(event.target.id+"handled 2");
+	}
+	function init()
+	{
+		document.querySelector("p").addEventListener("click",clicker);
+		document.querySelector("p").addEventListener("click",clicker);
+		document.querySelector("p").onclick = function(event){
+			console.log(event.target.id+"handled 3");}
+		
+	}
+</script>
+</head>
+<body onload = "init()">
+<!-- inline event handler will be overrided with other methods -->
+<p id ="p1" onclick = "console.log('p1 handler 4')"> This needs to be clicked </p>
+
+</body>
+</html>

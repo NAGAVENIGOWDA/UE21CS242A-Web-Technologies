@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="//pesuonline.sharepoint.com///cdn.jsdelivr.net/bluebird/3.5.0/bluebird.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.js"></script>
+<script src="jquery-3.6.1.js"></script>
+</head>
+<body>
+<div class = "container"></div>
+<button>Fetch here</button>
+<script>
+
+const mydiv = document.querySelector(".container"); 
+  $("button").click(function(){
+	fetch("get.html")
+	.then(function(response){
+		return response.text();
+	})
+	.then(function(myres){
+		mydiv.innerHTML = myres;
+	})
+  });
+
+		
+	
+	</script>
+</body> 
+</html> 

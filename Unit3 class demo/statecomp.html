@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+  <meta charset="utf-8">
+  <title>Dealing with State</title>
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+ 
+<body>
+  <div id="container"></div>
+   
+  <script type="text/babel">
+  var dest = document.querySelector("#container");
+  
+    class LightningCounter extends React.Component {
+			constructor(props){
+				super(props);
+				this.state = {strikes:0}
+				// to bind the timertick() to the scope of the constructor/component
+				this.timertick = this.timertick.bind(this);
+			}
+	
+	
+		componentDidMount(){
+			setInterval(this.timertick,1000);
+		}
+		
+		timertick(){
+			this.setState({
+				strikes: this.state.strikes + 100})
+		}
+					
+		render() {
+	  
+			return (
+				<h1>{this.state.strikes}</h1>
+			);
+		}
+    }
+ 
+    class LightningCounterDisplay extends React.Component {
+      render() {
+         		var divstyle = {  width: 250,
+								  textAlign: "center",
+								  backgroundColor: "black",
+								  padding: 40,
+								  fontFamily: "sans-serif",
+								  color: "white",
+								  borderRadius: 10}
+								  
+        return (
+          <div style = {divstyle}>
+            <LightningCounter/>
+          </div>
+        );
+      }
+    }
+ 
+    ReactDOM.render(
+      <LightningCounterDisplay/>,dest);
+  </script>
+</body>
+ 
+</html>

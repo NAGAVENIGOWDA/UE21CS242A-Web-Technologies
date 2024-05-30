@@ -1,0 +1,59 @@
+<html>
+<head>
+<style>
+div.static {
+			  position: static;
+			  border: 3px solid #73AD21;
+			}
+		#first{position:relative;
+				top:50px;
+				left:150px;
+				background-color:yellow;
+				}
+				
+		#second{position:relative;
+				top:150px;
+				left:50px;
+				background-color:aqua;
+				}
+				
+		div.absolute {
+				  position: absolute;
+				  top: 80px;
+				  right: 30px;
+				  width: 200px;
+				  height: 100px;
+				  border: 3px solid red;
+				}
+				
+		div.fixed {
+			  position: fixed;
+			  bottom: 50;
+			  right: 50;
+			  width: 300px;
+			  border: 3px solid #73AD21;
+			}
+</style>
+</head>
+<body>
+
+<h2>position: static;</h2>
+
+<p>An element with position: static; is not positioned in any special way; it is 
+always positioned according to the normal flow of the page:</p>
+
+<div class="static">
+  This div element has position: static;
+</div>
+
+<p id="first"> this is first line</p>
+<p id="second"> this is second line</p>
+
+<div class="absolute">This div element has position: absolute;</div>
+
+<div class="fixed">
+  This div element has position: fixed;
+</div>
+
+</body>
+</html>

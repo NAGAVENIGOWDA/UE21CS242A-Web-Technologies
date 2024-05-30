@@ -1,0 +1,44 @@
+<html>
+<head>
+	<script>
+		// JavaScript Object Inheritance
+	/*	
+// Method 1 : Object Literals
+	let item = {name:"Reebok", price:"Rs. 2000", av_qty:20};
+	document.write(item.name);
+	
+	let item1 = Object.create(item, {av_qty:{value:25},desc:{value:"Full HD"}});
+		document.write("<br>",item1.desc);*/
+		
+	
+	// Method 2 : Object Constructors
+		function item(name, price, av_qty){
+			this.name = name;
+			this.price = price;
+			this.av_qty = av_qty;
+			
+		}
+		
+		item.prototype.show = function(){
+			document.write(this.name+" "+this.price+" "+this.av_qty+"<br/>");
+		}	
+		let item1 = new item("Reebok", "Rs. 2000", 20);	
+
+		function gc_item(name, price, av_qty, desc){
+			item.call(this, name, price, av_qty);// indirectly calling the item constructor  
+			this.desc = desc;
+		}		
+		
+	//document.write(gc1.name+" "+gc1.desc);
+	
+	gc_item.prototype = new item(); // to add show()
+	gc_item.prototype.constructor = gc_item;// override the parent constructor call
+	
+	let gc1 = new gc_item("PS5", "Rs 40000", 50, "Full HD Display");
+	gc1.show();
+	
+	</script>
+</head>
+<body>
+</body>
+</html>

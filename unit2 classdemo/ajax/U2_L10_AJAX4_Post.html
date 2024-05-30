@@ -1,0 +1,17 @@
+<html>
+	<head>
+		<title> XHR</title>
+		<script>
+		
+		 const send = {name:"Shaun",Age :35,occupation :"Engineer"};
+		 const jsonstr = JSON.stringify(send);
+		 const xhr = new XMLHttpRequest();
+		 xhr.open("post","dummy.php");
+		 xhr.setRequestHeader("Content-type","application /json");
+		 xhr.send(jsonstr);
+	   </script>
+		
+	</head>
+	
+	
+</html>

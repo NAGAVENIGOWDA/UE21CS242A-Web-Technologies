@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<title> Video and Audio</title>
+		<script>
+		/*	function init(){
+				v = document.querySelector("#v1")
+				v1.play();
+				setInterval(fun,5000);
+				}
+			
+		  function fun(){
+			tmp = Math.floor(Math.random()*(v1.duration))
+			console.log(tmp);
+			v1.currentTime = tmp;
+		  }*/
+		  
+		  function init1(){
+			p = document.querySelector("#p1")
+			p.value+=5;
+			if(p.value!=200)
+			setInterval(init1,1000);
+		  }
+		
+	</script>
+	</head>
+	<body onload="init1()">
+	<video controls  id="v1"  height="200px" width="400px">
+		<source src="Avengers.mp4" type="video/mp4"/>
+	</video>
+	
+	<br><br>
+    <audio id="a1" autoplay muted controls="c2" >
+		<source src="audio.mp3" type="audio/mp3"/>
+	</audio>
+<br><br>
+	
+	<label for="p1"> Progress done on activity</label>
+	<progress id="p1" value="0" max="200">
+	</progress>
+	
+</body>
+</html>

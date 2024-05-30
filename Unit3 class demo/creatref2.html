@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>React</title>
+		<script crossdomain src="https://unpkg.com/react@16/umd/react.development.js"> </script> 
+		<script crossdomain src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"> </script> 
+		<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"> </script>
+		<style>
+		</style>
+	</head>
+	<body>
+		<div id="container"></div>
+		<script type="text/babel">
+		const colors = ["red","yellow","green","blue","orange"]
+		class CustomRef extends React.Component{
+					constructor(){
+						super();
+					this.myref = (e)=>{this.mytext= e}
+					 this.changeText =(event)=>{
+					 var i = Math.floor(Math.random()*5);
+					 this.mytext.innerHTML = colors[i];
+					 this.mytext.style.color = colors[i];
+					 }
+					
+					}
+		
+					render(){
+					
+						return(<div>
+							<h2 ref = {this.myref}> </h2>
+							<button onClick = {this.changeText}>Click here</button>
+						</div>)
+					}
+		}
+		ReactDOM.render(<CustomRef/>,document.getElementById("container"))
+		</script>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="jquery-3.6.1.js"></script>
+
+<script>
+	function getdata(){
+		$.ajax({url:"demo_test",method:"get",success:function(result){
+			$("#container").html(result);
+		},error:function(xhr)
+		{alert("An error has occurred :"+xhr.status+ " "+xhr.statusText)
+		}
+		});
+	}
+	                       
+</script>
+</head>
+<body>
+<button onclick = "getdata()">Get External Content</button>
+<div id = "container"></div>
+</body>
+</html>
+
